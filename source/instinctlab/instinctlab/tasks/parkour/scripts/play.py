@@ -63,8 +63,18 @@ from instinct_rl.utils.utils import get_obs_slice, get_subobs_by_components, get
 
 from isaaclab.envs import DirectMARLEnv, multi_agent_to_single_agent
 from isaaclab.utils.dict import print_dict
-from isaaclab.utils.io import load_pickle, load_yaml
+# from isaaclab.utils.io import load_pickle, load_yaml
 from isaaclab_tasks.utils import get_checkpoint_path, parse_env_cfg
+
+from isaaclab.utils.io import load_yaml
+import pickle
+import os
+
+def load_pickle(filename: str):
+    if not os.path.exists(filename):
+        raise FileNotFoundError(f"File not found: {filename}")
+    with open(filename, "rb") as f:
+        return pickle.load(f)
 
 # Import extensions to set up environment tasks
 from instinctlab.utils.wrappers import InstinctRlVecEnvWrapper

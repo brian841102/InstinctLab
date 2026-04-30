@@ -73,12 +73,15 @@ class AmassMotionCfg(AmassMotionCfgBase):
     path = os.path.expanduser("~/Datasets/AMASS/")
     retargetting_func = HumanoidSmplRotationalIK
     retargetting_func_kwargs = dict(
-        robot_chain=G1_29DOF_CFG.spawn.asset_path,
+        robot_chain=G1_29DOF_TORSOBASE_CFG.spawn.asset_path,
         smpl_root_in_robot_link_name="pelvis",
         translation_scaling=0.75,
         translation_height_offset=0.0,
     )
     filtered_motion_selection_filepath = os.path.expanduser("~/Datasets/AMASS_selections/amass_test_motion_files.yaml")
+    # path = os.path.expanduser("~/brian/data&model/parkour_motion_reference/")
+    # retargetting_func = None # If the file is already retargeted (_retargetted.npz)
+    # filtered_motion_selection_filepath = os.path.expanduser("~/brian/data&model/parkour_motion_reference/parkour_motion_without_run.yaml")
     motion_start_from_middle_range = [0.0, 0.0]
     buffer_device = "cpu"
 

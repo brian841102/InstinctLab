@@ -31,9 +31,9 @@ G1_with_shoe_CFG.spawn.asset_path = os.path.abspath(
 
 @configclass
 class AmassMotionCfg(AmassMotionCfgBase):
-    path = os.path.expanduser("~/Datasets")
+    path = os.path.expanduser("~/brian/data&model/parkour_motion_reference")
     retargetting_func = None
-    filtered_motion_selection_filepath = os.path.expanduser("~/Datasets/parkour_motion_without_run.yaml")
+    filtered_motion_selection_filepath = os.path.expanduser("~/brian/data&model/parkour_motion_reference/parkour_motion_without_run.yaml")
     motion_start_from_middle_range = [0.0, 0.9]
     motion_start_height_offset = 0.0
     ensure_link_below_zero_ground = False
@@ -114,6 +114,7 @@ class G1ParkourRoughEnvCfg_PLAY(G1ParkourRoughEnvCfg):
             lookat=[0.0, 0.75, 0.0],
             origin_type="asset_root",
             asset_name="robot",
+            # origin_type="world", fix-view
         )
 
         self.scene.env_spacing = 2.5
